@@ -21,7 +21,13 @@ app.get("/api/family/:gender", mainCtrl.getFamily);
 app.get("/api/restaurants", mainCtrl.getRestaurants);
 app.get("/api/restaurants/:name", mainCtrl.getRestaurants);
 
+app.put("/api/name/:newName", mainCtrl.updateName);
+app.put("/api/location/:newLocation", mainCtrl.updateLocation);
 
+app.post("/api/hobbies", mainCtrl.addHobby);
+app.post("/api/occupations", mainCtrl.addOccupation);
+app.post("/api/family", mainCtrl.addFamilyMember);
+app.post("/api/restaurants", mainCtrl.addRestaurant);
 
 app.listen(port, function () {
   console.log("It's working here");
