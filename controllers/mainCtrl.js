@@ -1,4 +1,5 @@
-const user = require("../user/user.js");
+const user = require("../user/user");
+const skills = require("../skills/skillz");
 
 module.exports = {
 
@@ -112,8 +113,21 @@ module.exports = {
       return res.status(201).json({ "message": "Added new restaurant." });
     }
     return res.status(400).json({ "message": "Unable to add new restaurant." });
+  },
+
+  getSkillz(req, res) {
+    let skillsList = skills.slice(0);
+    if(req.query.experience) {
+      skillsList = skillsList.filter( skill => {
+        return skill.experience === req.query.experience
+      } );
+    }
+    return res.status(200).json({ "skills": skillsList });
+  },
+
+  postSkillz(req, res) {
+    skills.push(req.body);
+    return res.status(201).json({ "skills": skills });
   }
-
-
 
 }

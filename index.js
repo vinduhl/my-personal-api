@@ -29,6 +29,9 @@ app.post("/api/occupations", mainCtrl.addOccupation);
 app.post("/api/family", mainCtrl.addFamilyMember);
 app.post("/api/restaurants", mainCtrl.addRestaurant);
 
+app.get("/api/skillz", mainCtrl.getSkillz);
+app.post("/api/skillz", middleware.generatedId, mainCtrl.postSkillz)
+
 app.listen(port, function () {
   console.log("It's working here");
 });

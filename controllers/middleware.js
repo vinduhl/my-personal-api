@@ -1,3 +1,5 @@
+const skills = require("../skills/skillz");
+
 module.exports = {
 
   addHeaders(req, res, next) {
@@ -11,6 +13,12 @@ module.exports = {
       'Content-Security-Policy': "default-src 'self' devmountain.github.io"
     });
 
+    next();
+  },
+
+  generatedId(req, res, next) {
+    const nextId = skills.length + 1;
+    req.body.id = nextId;
     next();
   }
 
