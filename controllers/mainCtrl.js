@@ -1,5 +1,6 @@
 const user = require("../user/user");
 const skills = require("../skills/skillz");
+const secrets = require("../secrets/secrets");
 
 module.exports = {
 
@@ -128,6 +129,10 @@ module.exports = {
   postSkillz(req, res) {
     skills.push(req.body);
     return res.status(201).json({ "skills": skills });
+  },
+
+  getSecrets(req, res) {
+    return res.status(200).json({ "secrets": secrets});
   }
 
 }

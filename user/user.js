@@ -1,4 +1,4 @@
-var user = {
+const user = {
   name: "Wendell",
   location: "Dallas, TX",
   occupations: ["Analyst", "DevMountain Student"],

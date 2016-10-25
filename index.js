@@ -30,7 +30,9 @@ app.post("/api/family", mainCtrl.addFamilyMember);
 app.post("/api/restaurants", mainCtrl.addRestaurant);
 
 app.get("/api/skillz", mainCtrl.getSkillz);
-app.post("/api/skillz", middleware.generatedId, mainCtrl.postSkillz)
+app.post("/api/skillz", middleware.generatedId, mainCtrl.postSkillz);
+
+app.get("/api/secrets/:username/:pin", middleware.verifyUser, mainCtrl.getSecrets);
 
 app.listen(port, function () {
   console.log("It's working here");

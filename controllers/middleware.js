@@ -20,6 +20,18 @@ module.exports = {
     const nextId = skills.length + 1;
     req.body.id = nextId;
     next();
+  },
+
+  verifyUser(req, res, next) {
+    let username = req.params.username;
+    let pin = req.params.pin;
+
+    if(username === "vinduhl" && pin === "123456") {
+      next();
+    } else {
+      res.status(401).json({ "message": "You are unauthorized to get secrets!" });
+    }
+
   }
 
 }

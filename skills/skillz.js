@@ -1,4 +1,4 @@
-var skills = [
+const skills = [
   {
     "id": 1,
     "name": "Javascript",
